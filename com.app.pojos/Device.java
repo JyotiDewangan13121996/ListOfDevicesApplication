@@ -2,6 +2,9 @@ package com.app.pojos;
 
 import javax.persistence.*;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "device")
 public class Device 
@@ -137,10 +140,24 @@ public class Device
 	}
 
 	
+
+	// getter and setter for device status .
+	
+	public boolean isDeviceStatus() {
+		return deviceStatus;
+	}
+
+
+	public void setDeviceStatus(boolean deviceStatus) {
+		this.deviceStatus = deviceStatus;
+	}
+	
+	
    // getter and setter for list of devices .
 	
 	@ManyToOne
 	@JoinColumn(name = "deviceId")
+	@JsonIgnore
 	public ListOfDevices getListOfDevices() {
 		return listOfDevices;
 	}
@@ -153,6 +170,7 @@ public class Device
 	
     // getter and setter for manufacturer of the device  .
 	@OneToOne(mappedBy = "device" , cascade = CascadeType.ALL , orphanRemoval = true)
+	@JsonIgnore
 	public Manufacturer getManufacturer() {
 		return manufacturer;
 	}
@@ -163,16 +181,6 @@ public class Device
 	}
 
 	
-	// getter and setter for device status .
-	
-	public boolean isDeviceStatus() {
-		return deviceStatus;
-	}
-
-
-	public void setDeviceStatus(boolean deviceStatus) {
-		this.deviceStatus = deviceStatus;
-	}
 	
 	
 	
