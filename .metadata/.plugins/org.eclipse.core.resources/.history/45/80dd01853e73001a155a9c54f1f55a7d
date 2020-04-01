@@ -1,0 +1,47 @@
+package com.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.pojos.Device;
+
+
+@Service
+@Transactional
+public class ListOfDevicesServiceImplementation  implements IListOfDevicesService
+{
+	
+	@Autowired
+	private IListOfDevicesService listDao ;
+
+	
+	// Overridden method for getting the list of the devices in service layer.
+	
+	@Override
+	public List<Device> getListOfDevices() 
+	{
+		return listDao.getListOfDevices();
+	}
+
+	@Override
+	public Device addNewDevice(Device newDevice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Device removeDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Device getDeviceById(Device device) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

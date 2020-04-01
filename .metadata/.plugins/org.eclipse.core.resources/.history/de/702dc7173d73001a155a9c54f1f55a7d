@@ -1,0 +1,28 @@
+package com.app.dao;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.stereotype.Repository;
+
+import com.app.pojos.Manufacturer;
+
+
+@Repository
+public class ManufacturerDaoImplementation implements IManufacturerDao
+{
+
+	private EntityManager entityManager;
+	
+	@Override
+	public Manufacturer getManufacturerDetails(int manufacturerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Manufacturer updateManufacturerDetails(Manufacturer updatedManufacturer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

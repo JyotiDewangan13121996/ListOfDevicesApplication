@@ -1,0 +1,37 @@
+package com.app.pojos;
+
+public class Device 
+{
+	private Integer serialNo ;
+	private String deviceName ;
+	private String deviceType ;
+	private String modelName ;
+	private Integer modelNo ;
+	private String modelDescription ;
+	private String productDescription ;
+	
+	
+	// default constructor of Device.
+	public Device() 
+	{
+		System.out.println("in default constructor of Device");
+	}
+
+
+	// parameterize constructor of Device  using fields .
+	public Device(String deviceName, String deviceType, String modelName, Integer modelNo, String modelDescription,
+			String productDescription) {
+		super();
+		this.deviceName = deviceName;
+		this.deviceType = deviceType;
+		this.modelName = modelName;
+		this.modelNo = modelNo;
+		this.modelDescription = modelDescription;
+		this.productDescription = productDescription;
+	}
+	
+	
+	
+	
+
+}

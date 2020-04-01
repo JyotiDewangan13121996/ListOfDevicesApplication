@@ -1,0 +1,48 @@
+package com.app.dao;
+
+import com.app.pojos.Device;
+
+import javax.persistence.*;
+
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public class DeviceDaoImplementation implements IDeviceDao
+{
+	@PersistenceContext
+	private EntityManager entityManager ;
+	
+	
+
+	@Override
+	public boolean powerButton(int deviceId) 
+	{
+		
+	}
+
+	@Override
+	public boolean getStatusOfDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Device getDetailsOfDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean resetDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Device updateDeviceDetails(Device updatedDevice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.app.service;
+
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.pojos.Manufacturer;
+
+
+@Service
+@Transactional
+
+public class ManufacturerServiceImplementation implements IManufacturerService
+{
+
+	@Override
+	public Manufacturer getManufacturerDetails(int manufacturerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Manufacturer updateManufacturerDetails(Manufacturer updatedManufacturer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

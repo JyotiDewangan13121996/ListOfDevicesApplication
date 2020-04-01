@@ -1,0 +1,63 @@
+package com.app.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.IDeviceDao;
+import com.app.pojos.Device;
+
+
+@Service
+@Transactional
+public class DeviceServiceImplementation implements IDeviceService
+{
+	@Autowired
+	private IDeviceDao deviceDao ;
+
+	
+	// Overridden method for power button of a device in service layer.
+	@Override
+	public boolean powerButton(int deviceId)
+	{
+		return deviceDao.powerButton(deviceId) ;
+	}
+
+	
+	// Overridden method for getting on of status of a device in service layer.
+	
+	@Override
+	public boolean getStatusOfDevice(int deviceId)
+	{
+		return deviceDao.getStatusOfDevice(deviceId);
+	}
+
+	
+	// Overridden method for getting the details of the device in service layer.
+	
+	@Override
+	public Device getDetailsOfDevice(int deviceId) 
+	{
+		return deviceDao.getDetailsOfDevice(deviceId);
+	}
+
+	
+	// Overridden method for resetting the device in power off mode in service layer.
+	
+	@Override
+	public boolean resetDevice(int deviceId)
+	{
+		return deviceDao.resetDevice(deviceId);
+	}
+
+	
+	// Overridden method for updating the details of the device in service layer.
+	
+	@Override
+	public Device updateDeviceDetails(Device updatedDevice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

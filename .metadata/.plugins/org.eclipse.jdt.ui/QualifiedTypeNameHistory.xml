@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.mysql.cj.Session"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="com.app.service.IManufacturerService"/>
+<fullyQualifiedTypeName name="com.app.pojos.Manufacturer"/>
+<fullyQualifiedTypeName name="com.app.service.IListOfDevicesService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="com.app.service.IDeviceService"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="javax.sound.midi.VoiceStatus"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.app.pojos.Device"/>
+<fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+<fullyQualifiedTypeName name="java.lang.Void"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+</qualifiedTypeNameHistroy>

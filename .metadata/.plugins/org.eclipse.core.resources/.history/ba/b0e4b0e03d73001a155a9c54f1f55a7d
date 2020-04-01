@@ -1,0 +1,49 @@
+package com.app.service;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.IDeviceDao;
+import com.app.pojos.Device;
+
+
+@Service
+@Transactional
+public class DeviceServiceImplementation implements IDeviceService
+{
+	@Autowired
+	private IDeviceDao deviceDao ;
+
+	@Override
+	public boolean powerButton(int deviceId)
+	{
+		return deviceDao.powerButton(deviceId) ;
+	}
+
+	@Override
+	public boolean getStatusOfDevice(int deviceId)
+	{
+		return deviceDao.getStatusOfDevice(deviceId);
+	}
+
+	@Override
+	public Device getDetailsOfDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean resetDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Device updateDeviceDetails(Device updatedDevice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

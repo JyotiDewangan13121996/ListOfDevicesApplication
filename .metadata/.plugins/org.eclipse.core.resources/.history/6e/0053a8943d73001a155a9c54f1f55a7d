@@ -1,0 +1,40 @@
+package com.app.dao;
+
+import java.util.List;
+
+import com.app.pojos.Device;
+
+import javax.persistence.*;
+
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public class ListOfDevicesDaoImplementation implements IListOfDevicesDao
+{
+
+	@Override
+	public List<Device> getListOfDevices() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Device addNewDevice(Device newDevice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Device removeDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Device getDeviceById(Device device) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

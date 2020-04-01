@@ -1,0 +1,55 @@
+package com.app.dao;
+
+import com.app.pojos.Device;
+
+import javax.persistence.*;
+
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public class DeviceDaoImplementation implements IDeviceDao
+{
+	@PersistenceContext
+	private EntityManager entityManager ;
+	
+ 
+	// To switch on or switch off the power button of a device.
+
+	@Override
+	public boolean powerButton(Device device) 
+	{
+		if(device.isDeviceStatus())   // if device is powered on then switch it off
+			return false ;
+		else                        // if device is powered off then switch it on
+			return true ;
+	}
+
+	
+	// To get the status of the device .
+	
+	@Override
+	public boolean getStatusOfDevice(Device device) 
+	{
+		return device.isDeviceStatus();
+	}
+
+	@Override
+	public Device getDetailsOfDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean resetDevice(int deviceId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Device updateDeviceDetails(Device updatedDevice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

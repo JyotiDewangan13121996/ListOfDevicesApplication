@@ -1,0 +1,115 @@
+package com.app.pojos;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Device")
+public class Device 
+{
+	private Integer serialNo ;
+	private String deviceName ;
+	private String deviceType ;
+	private String modelName ;
+	private Integer modelNo ;
+	private String modelDescription ;
+	private String productDescription ;
+	
+	
+	// default constructor of Device.
+	public Device() 
+	{
+		System.out.println("in default constructor of Device");
+	}
+
+
+	// parameterize constructor of Device  using fields .
+	public Device(String deviceName, String deviceType, String modelName, Integer modelNo, String modelDescription,
+			String productDescription) {
+		super();
+		this.deviceName = deviceName;
+		this.deviceType = deviceType;
+		this.modelName = modelName;
+		this.modelNo = modelNo;
+		this.modelDescription = modelDescription;
+		this.productDescription = productDescription;
+	}
+
+	
+	// Getters and Setters .
+
+	public Integer getSerialNo() {
+		return serialNo;
+	}
+
+
+	public void setSerialNo(Integer serialNo) {
+		this.serialNo = serialNo;
+	}
+
+
+	public String getDeviceName() {
+		return deviceName;
+	}
+
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+	}
+
+
+	public String getDeviceType() {
+		return deviceType;
+	}
+
+
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
+	}
+
+
+	public String getModelName() {
+		return modelName;
+	}
+
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+
+	public Integer getModelNo() {
+		return modelNo;
+	}
+
+
+	public void setModelNo(Integer modelNo) {
+		this.modelNo = modelNo;
+	}
+
+
+	public String getModelDescription() {
+		return modelDescription;
+	}
+
+
+	public void setModelDescription(String modelDescription) {
+		this.modelDescription = modelDescription;
+	}
+
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+	
+	
+	
+	
+	
+	
+
+}

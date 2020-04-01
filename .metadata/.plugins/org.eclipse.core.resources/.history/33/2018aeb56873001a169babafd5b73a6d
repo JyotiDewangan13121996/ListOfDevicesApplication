@@ -1,0 +1,18 @@
+package com.app.service;
+
+import com.app.pojos.Device;
+
+public interface IDeviceService 
+{
+   boolean powerButton( Device device);  // to power on and power of the device.
+   
+   boolean getStatusOfDevice(Device device);  // to get the on or off power status of the device.
+   
+   Device getDetailsOfDevice(int deviceId);  // to get the details of the device.
+   
+   boolean resetDevice(int deviceId);  // to reset the device to off mode .
+   
+   Device updateDeviceDetails(Device updatedDevice);  // to update the details of the device
+   
+   
+}
