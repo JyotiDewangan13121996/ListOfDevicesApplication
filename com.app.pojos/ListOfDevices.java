@@ -1,11 +1,13 @@
 package com.app.pojos;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.*;
 
-import org.hibernate.type.TrueFalseType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "list_of_devices")
@@ -84,7 +86,8 @@ public class ListOfDevices
    // getter & setter for list of devices .
 
 @OneToMany(mappedBy = "listOfDevices" , cascade = CascadeType.ALL , orphanRemoval = true)
-	public List<Device> getDevices() {
+@JsonIgnore	
+public List<Device> getDevices() {
 		return devices;
 	}
 
