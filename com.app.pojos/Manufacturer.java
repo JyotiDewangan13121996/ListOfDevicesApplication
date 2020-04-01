@@ -7,6 +7,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -112,6 +113,7 @@ public void setDateOfManufacturing(Date dateOfManufacturing) {
 
 @OneToOne
 @JoinColumn(name = "deviceId")
+@JsonIgnore
 public Device getDevice() {
 	return device;
 }
