@@ -1,5 +1,6 @@
 package com.app.serviceTester;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -7,98 +8,109 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import java.util.Scanner;
 
 import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import com.app.dao.DeviceDaoImplementation;
 import com.app.pojos.Device;
+import com.app.service.DeviceServiceImplementation;
 import com.app.service.IDeviceService;
 
+@RunWith(SpringRunner.class)
 public class DeviceServiceTester 
 {
 
-	@Autowired
-	private IDeviceService deviceServiceTester ;
+	@InjectMocks
+	private DeviceServiceImplementation deviceServiceTester ;
+	
+	@Mock
+	private DeviceDaoImplementation deviceDao;
 	
 	
-	private Integer deviceIdToBeTested ;
-	
-	
-	@Before
-	public void initialize()
-	{
-		
-		Scanner sc = new Scanner(System.in) ;
-
-		System.out.println("Enter the device id which is to be tested :");
-		this.deviceIdToBeTested = sc.nextInt() ;
-		
-	}
-	
+	//private Integer deviceIdToBeTested =1 ;
 	
 	
 	
 	// To test powerButton() method of the device service layer . 
-	
-	public void testPowerButton(Device device )
+	@Test
+	public void testPowerButton( )
 	{
-		device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+		//Device device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
 		
-		if(device.isDeviceStatus())
-			assertTrue(deviceServiceTester.powerButton(device));
+		Device device = new Device("Samsung J2", "Electronics", "BR1234", 1234," version 12.5 ", "Smart Phone", false) ;
 		
-		else
-			assertFalse(deviceServiceTester.powerButton(device));
+		Mockito.when(deviceDao.powerButton(device)).thenReturn(device.isDeviceStatus());
+		
+		assertThat(deviceServiceTester.powerButton(device)).isEqualTo(device.isDeviceStatus());
+		
 	}
 	
 	
 	
 	// To test getStatusOfDevice() method of the device service layer . 
-	
-	public void testGetStatusOfDevice(Device device) 
+	@Test
+	public void testGetStatusOfDevice() 
 	{
 		
-		device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+	//	Device device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+		 
+        Device device = new Device("Samsung J2", "Electronics", "BR1234", 1234," version 12.5 ", "Smart Phone", false) ;
 		
+		Mockito.when(deviceDao.getStatusOfDevice(device)).thenReturn(device.isDeviceStatus());
 		
-		if(device.isDeviceStatus())
-			assertTrue(deviceServiceTester.getStatusOfDevice(device));
+		assertThat(deviceServiceTester.getStatusOfDevice(device)).isEqualTo(device.isDeviceStatus());
 		
-		else
-			assertFalse(deviceServiceTester.getStatusOfDevice(device));
 		
 	}
 	
 	
 	
 	// To test getDetailsOfDevice() method of the device service layer . 
-	
-	public void testGetDetailsOfDevice(int deviceId)
+	@Test
+	public void testGetDetailsOfDevice()
 	{
-		deviceId= this.deviceIdToBeTested;
+		int deviceId=1 ;
 		
-		assertNotNull(deviceServiceTester.getDetailsOfDevice(deviceId));
+        Device device = new Device("Samsung J2", "Electronics", "BR1234", 1234," version 12.5 ", "Smart Phone", false) ;
+		
+		Mockito.when(deviceDao.getDetailsOfDevice(deviceId)).thenReturn(device);
+		
+		assertThat(deviceServiceTester.getDetailsOfDevice(deviceId)).isEqualTo(device);
+		
+		
+		//assertNotNull(deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested));
 		
 	}
 	
 	
 	
 	// To test resetDevice() method of the device service layer .
-	
-	public void testResetDevice( Device device )
+	@Test
+	public void testResetDevice( )
 	{
-		device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+        Device device = new Device("Samsung J2", "Electronics", "BR1234", 1234," version 12.5 ", "Smart Phone", false) ;
 		
-		assertFalse(deviceServiceTester.resetDevice(device));
+		Mockito.when(deviceDao.resetDevice(device)).thenReturn(device.isDeviceStatus());
+		
+		assertThat(deviceServiceTester.resetDevice(device)).isEqualTo(device.isDeviceStatus());
 		
 	}
 	
 	
 	// To test updateDeviceDetails() method of the device service layer .
-	
-	public void testUpdateDeviceDetails( Device updatedDevice ) 
+	@Test
+	public void testUpdateDeviceDetails( ) 
 	{
-		updatedDevice = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+        Device device = new Device("Samsung J2", "Electronics", "BR1234", 1234," version 12.5 ", "Smart Phone", false) ;
 		
-	    assertNotNull(deviceServiceTester.updateDeviceDetails(updatedDevice));
+		Mockito.when(deviceDao.updateDeviceDetails(device)).thenReturn(device);
+		
+		assertThat(deviceServiceTester.updateDeviceDetails(device)).isEqualTo(device);
 		
 	}
 	
