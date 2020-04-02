@@ -1,22 +1,23 @@
 package com.app.serviceTester;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.Scanner;
 
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.pojos.Device;
-import com.app.service.IListOfDevicesService;
+import com.app.service.IDeviceService;
 
-
-public class ListOfDevicesServiceTester 
+public class DeviceServiceTester 
 {
 
 	@Autowired
-	private IListOfDevicesService listOfDevicesService ;
+	private IDeviceService deviceServiceTester ;
+	
 	
 	private Integer deviceIdToBeTested ;
 	
@@ -33,37 +34,73 @@ public class ListOfDevicesServiceTester
 	}
 	
 	
-	// Tester to check the getListOfDevices() service method .
 	
-	public void testGetListOfDevices() 
+	
+	// To test powerButton() method of the device service layer . 
+	
+	public void testPowerButton(Device device )
 	{
+		device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
 		
-	   	assertNotNull(listOfDevicesService.getListOfDevices());
+		if(device.isDeviceStatus())
+			assertTrue(deviceServiceTester.powerButton(device));
+		
+		else
+			assertFalse(deviceServiceTester.powerButton(device));
 	}
 	
 	
 	
-	// Tester to check addNewDevice() service method.
+	// To test getStatusOfDevice() method of the device service layer . 
 	
-	public void testAddNewDevice(Device newDevice)
+	public void testGetStatusOfDevice(Device device) 
 	{
-		newDevice = listOfDevicesService.getDeviceById(this.deviceIdToBeTested);
 		
-		assertNotNull(listOfDevicesService.addNewDevice(newDevice));
+		device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+		
+		
+		if(device.isDeviceStatus())
+			assertTrue(deviceServiceTester.getStatusOfDevice(device));
+		
+		else
+			assertFalse(deviceServiceTester.getStatusOfDevice(device));
+		
 	}
 	
 	
-	// Tester to check getDeviceById() service method .
 	
-	public void testGetDeviceById(int deviceId) 
+	// To test getDetailsOfDevice() method of the device service layer . 
+	
+	public void testGetDetailsOfDevice(int deviceId)
 	{
-		deviceId = this.deviceIdToBeTested ;
+		deviceId= this.deviceIdToBeTested;
 		
-	  	assertNotNull(listOfDevicesService.getDeviceById(deviceId));
+		assertNotNull(deviceServiceTester.getDetailsOfDevice(deviceId));
+		
 	}
-
 	
 	
+	
+	// To test resetDevice() method of the device service layer .
+	
+	public void testResetDevice( Device device )
+	{
+		device = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+		
+		assertFalse(deviceServiceTester.resetDevice(device));
+		
+	}
+	
+	
+	// To test updateDeviceDetails() method of the device service layer .
+	
+	public void testUpdateDeviceDetails( Device updatedDevice ) 
+	{
+		updatedDevice = deviceServiceTester.getDetailsOfDevice(this.deviceIdToBeTested);
+		
+	    assertNotNull(deviceServiceTester.updateDeviceDetails(updatedDevice));
+		
+	}
 	
 	
 }
