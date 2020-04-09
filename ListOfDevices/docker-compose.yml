@@ -16,12 +16,12 @@ services:
     networks:
       - application-network
     ports:
-      - "9098:3306"
+      - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=ListOfDevices
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=manager 
+      - MYSQL_PASSWORD=root 
 
 networks:
   application-network:
