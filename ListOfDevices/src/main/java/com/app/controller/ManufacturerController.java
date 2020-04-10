@@ -58,7 +58,7 @@ public class ManufacturerController
 	@PutMapping("/updateManufacturerDetails/{manufactureId}")
 	
 	public ResponseEntity<?> updateManufacturerDetails(@RequestParam String manufacturerName , @RequestParam String locationOfManufacturing,
-		                                @RequestParam Date dateOfManufacturing , @PathVariable int manufactureId)
+		                                @RequestParam String dateOfManufacturing , @PathVariable int manufactureId)
 	{
 		
 		System.out.println(" Update the manufacturer details  having manufacturer Id: " + manufactureId  );

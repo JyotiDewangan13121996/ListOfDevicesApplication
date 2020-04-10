@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.sound.midi.VoiceStatus;
 
@@ -7,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -166,6 +170,87 @@ public class DeviceController
 		
 		
 	}
+	
+	
+	
+	
+	// REST request handling method to get list of devices .
+		@GetMapping("/listOfDevices")
+		public ResponseEntity<?> displayListOfDevices()
+		{
+			System.out.println(" in list of devices ");
+			
+			List<Device> listOfDevices = deviceService.getListOfDevices() ;
+			
+			if(listOfDevices.size() == 0)
+				return new ResponseEntity<Void>(HttpStatus.NO_CONTENT) ;
+			
+			return new ResponseEntity<List<Device>>(listOfDevices , HttpStatus.OK);
+			
+		}
+		
+		
+		// REST request handling method to add new device .
+		@PostMapping("/addNewDevice")
+		
+		public ResponseEntity<?> addNewDevice( @RequestBody Device device )
+		{
+			System.out.println(" Add new device :  " + device);
+			
+			try
+			{
+
+				Device newDevice = new Device(device.getCategory(), device.getDeviceId(), device.getDeviceName(), device.getDeviceType(), device.getModelName(), device.getModelNo(), device.getModelDescription(), device.getProductDescription(), device.isDeviceStatus());
+						
+				
+				return new ResponseEntity<Device>(deviceService.addNewDevice(newDevice) , HttpStatus.CREATED) ;
+			} 
+			catch (Exception e)
+			{
+				e.printStackTrace();
+				
+				return new ResponseEntity<Void> (HttpStatus.INTERNAL_SERVER_ERROR) ;
+			}
+			
+		}
+		
+		
+		
+		// REST request handling method to remove a device from the list .
+		
+		@DeleteMapping("/deleteDevice/{deviceId}")
+		public ResponseEntity<Void> removeDeviceFromList(@PathVariable int deviceId)
+		{
+			System.out.println(" Delete device having device id : " + deviceId);
+			
+			Device deviceToBeRemoved = deviceService.getDeviceById(deviceId);
+			
+			deviceService.removeDevice(deviceToBeRemoved);
+			
+			return new ResponseEntity<>(HttpStatus.OK);
+			
+		}
+		
+		
+		
+		// REST request handling method to get details of a device using its device id  .
+		
+		@GetMapping("/deviceDetails/{deviceId}")
+		
+		public ResponseEntity<?> getDeviceDetailsByDeviceId(@PathVariable int deviceId)
+		{
+			
+			System.out.println(" Get device details by device id : " + deviceId);
+			
+			Device deviceDetails = deviceService.getDeviceById(deviceId);
+			
+			if(deviceDetails == null )
+				return new ResponseEntity<Void> (HttpStatus.NOT_FOUND) ;
+			
+			return new ResponseEntity<Device>(deviceDetails , HttpStatus.OK ) ;
+			
+		}
+		
 	
 
 }
