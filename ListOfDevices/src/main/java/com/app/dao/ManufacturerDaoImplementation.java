@@ -1,28 +1,34 @@
 package com.app.dao;
 
-import javax.persistence.*;
 
-import org.hibernate.Session;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.app.pojos.Manufacturer;
+
 
 
 @Repository
 public class ManufacturerDaoImplementation implements IManufacturerDao
 {
 
-	
-	@PersistenceContext
-	private EntityManager entityManager;
-	
+	private List<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>(Arrays.asList(
+			
+			new Manufacturer(1, "Apple" , "Bangalore" , "01-05-2018") ,
+			new Manufacturer(2, "Samsung" , "Pune" , "11-02-2020") ,
+			new Manufacturer(3, "LG" , "Delhi" , "20-05-2019") 
+			
+			)) ;
 	
 	// To display the manufacturer details.
 	
 	@Override
 	public Manufacturer getManufacturerDetails(int manufacturerId) 
 	{
-		return entityManager.unwrap(Session.class).get(Manufacturer.class, manufacturerId);
+		return manufacturerList.get(manufacturerId);
 	}
 
 	
@@ -31,9 +37,14 @@ public class ManufacturerDaoImplementation implements IManufacturerDao
 	@Override
 	public Manufacturer updateManufacturerDetails(Manufacturer updatedManufacturer)
 	{
-	
-		entityManager.unwrap(Session.class).update(updatedManufacturer);
-		return updatedManufacturer;
+	    Manufacturer manufacturerToBeUpdated = getManufacturerDetails(updatedManufacturer.getManufactureId());
+	    
+	    manufacturerToBeUpdated.setManufacturerName(updatedManufacturer.getManufacturerName());
+	    manufacturerToBeUpdated.setLocationOfManufacturing(updatedManufacturer.getLocationOfManufacturing());
+	    manufacturerToBeUpdated.setDateOfManufacturing(updatedManufacturer.getDateOfManufacturing());
+	   
+		
+		return manufacturerToBeUpdated;
 	}
 
 }
