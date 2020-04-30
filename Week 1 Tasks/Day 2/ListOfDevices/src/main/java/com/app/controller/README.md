@@ -24,7 +24,6 @@
 
 
 
-
 ****************************  2. ManufacturerController **************************************
 
 - Here interface " IManufacturerService " is autowired (dependency injection) .
@@ -34,5 +33,10 @@
 1. To get mannufacturer details by mannufacturer id .
 2. To update the manufacturer details .
 
+
+
+**********************************************************************************
+
+-> Here the methods from the service layer will be called to carry out the functionality which will further call the methods from DAO Layer having business logic
 
 
