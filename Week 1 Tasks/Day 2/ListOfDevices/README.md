@@ -1,1 +1,2 @@
-It is the spring boot application that displays a list of device with on/off state.
+-> It is the spring boot application that displays a list of device with on/off state.
+-> Here build tool is gradle .
