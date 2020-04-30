@@ -1,1 +1,1 @@
-# ListOfDevicesApplication
+# Weekly Tasks For Learning Technologies
