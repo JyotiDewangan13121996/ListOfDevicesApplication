@@ -27,5 +27,11 @@ To build JAR and test
 => This application can be run using any IDE by running it as spring boot application . And the JUnit test cases can be run by running the application using JUnit framework .
 
 
+=> It can be verified by : 
+
+```
+
+
+```
 
 
