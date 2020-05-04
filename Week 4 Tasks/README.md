@@ -1,3 +1,7 @@
 # Week 4 Tasks :
 
-=> Learning about Kafkacat Utility Tool and Schema Registry and Apache Avro.
+=> Learning about : - 
+
+1. Kafkacat Utility Tool 
+2. Schema Registry 
+3. Apache Avro.
