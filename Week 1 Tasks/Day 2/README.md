@@ -8,6 +8,17 @@
 
 ### Building : 
 
-=>  This project uses gradle build tool to build the application . Build steps consist of  
+=>  This project uses gradle build tool to build the application . Build steps consist of  building an executable JAR .
+
+```
+To build JAR and test
+./gradlew clean build 
+
+```
+
+### Running : 
+
+=> This application can be run using any IDE by running it as spring boot application . And the JUnit test cases can be run by running the application using JUnit framework .
+
 
 
