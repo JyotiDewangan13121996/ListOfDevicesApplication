@@ -51,8 +51,23 @@ Below are the snippets for service definition of kafka and zookeeper in a docker
          KAFKA_ADVERTISED_LISTENERS : 'INSIDE://:9092 , OUTSIDE://<host IP address>'
       depends_on:
         - < zookeeper service name >
-  
-    
-
+ 
 
 ```
+
+#### Commands to deploy the application using docker-compose file in docker swarm
+
+```
+1. Initialize the swarm :
+
+docker swarm init
+
+
+2. Deploy the docker stack : 
+
+docker stack deploy --compose-file docker-compose.yml application
+
+(here application is the name of deployed stack)
+
+```
+
