@@ -11,6 +11,9 @@ EXPOSE 8080
 
 CMD ["java" , "-jar" ,"./app/spring-boot-application.jar"]
 
+
+*****************************************************************************************************************
+
 => Here docker image "openjdk:latest" is used to dockerize the application.
 
 => Here WORKDIR for the application is "/app" .
