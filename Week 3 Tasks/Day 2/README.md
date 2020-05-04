@@ -48,7 +48,7 @@ Below are the snippets for service definition of kafka and zookeeper in a docker
       environment:
          KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:< zookeeper client port >'
          KAFKA_BROKER_ID : <broker id>
-         KAFKA_ADVERTISED_LISTENERS : 'INSIDE://:9092 , OUTSIDE://<host IP address>'
+         KAFKA_ADVERTISED_LISTENERS : 'PLAINTEXT://localhost:9092 '
       depends_on:
         - < zookeeper service name >
   
