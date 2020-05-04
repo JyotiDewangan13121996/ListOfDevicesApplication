@@ -51,8 +51,8 @@ docker image build  -t application .
 
 ```
 To start the container of the Docker image "application" 
-docker container run -itd --name application_container -p 9090:9090 application
+docker container run -itd --name application_container -p 8080:8080 application
 
 ```
 
-=> Here the container with the name "application_container" will start thereby starting the application (as it will run the executable JAR ) on port no. 9090 as we have published it on port no 9090.
+=> Here the container with the name "application_container" will start thereby starting the application (as it will run the executable JAR ) on port no. 9090 as we have published it on port no 8080.
