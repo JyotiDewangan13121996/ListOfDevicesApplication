@@ -7,6 +7,7 @@
 
 1. Producer  --> sends the topics to the kafka server
 2. Consumer  --> consumes the topics from the kafka server
+3. Avro schema  --> defined an avro schema "user.avsc" file under 'src/main/resources' directory and after building the application ,it will automatically create the 'User.java' class under 'src/main/java/avro.com.example.avro' directorty .  
 
 
 
