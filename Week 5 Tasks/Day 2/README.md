@@ -23,4 +23,6 @@ https://code.siemens.com/MindConnectRail/AggregationModel/
 AggregationModelACM200Mum
 
 
+https://www.mobility.siemens.com/global/en/portfolio/rail/automation/signaling-on-board-and-crossing-products/axle-counting-systems.html
+
 ```
