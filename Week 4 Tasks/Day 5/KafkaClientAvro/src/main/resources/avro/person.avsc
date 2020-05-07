@@ -1,0 +1,14 @@
+{
+ "namespace": "avro.com.example",
+ "type": "record",
+ "name": "Person",
+ "fields":
+    [
+      { "name": "name" , "type": "string" ,"default": "" , "doc": "Name of User"  },
+      { "name": "age" , "type" : "string" ,"default": "" ,  "doc": "Age of User"} ,
+      { "name": "weight" , "type" : "string" ,"default": "" ,  "doc" : "Weight of User"},
+      { "name": "address" , "type": "string" ,"default": "" , "doc" : "Address of User" }
+    
+    ]
+
+}
