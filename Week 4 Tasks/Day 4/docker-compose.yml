@@ -38,7 +38,7 @@ services:
   schemaregistry:
     image: confluentinc/cp-schema-registry:latest
     environment:
-      SCHEMA_REGISTRY_HOST_NAME: schemaregistry
+      SCHEMA_REGISTRY_HOST_NAME: localhost
       SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
     depends_on:
       - zookeeper
