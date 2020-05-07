@@ -1,6 +1,6 @@
-# Day 2 Task :
+# Day 5 Task :
 
-=> Learning on OPC UA Fundamentals +Domain Trainings 
+=> Learning on OPC UA - Models +Domain Trainings 
 
 #### Reference Links :
 
