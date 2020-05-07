@@ -1,0 +1,60 @@
+version: '3.4'
+
+services: 
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+    volumes:
+       - /var/run/docker.sock:/var/run/docker.sock
+       - zkData:/var/lib/zookeeper/data
+       - zkLogs:/var/lib/zookeeper/log
+    networks:
+       - kafkaStack
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    ports:
+      - target: 9094
+        published: 9094
+        protocol: tcp
+        mode: host
+    environment:
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://127.0.0.1:9094
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    volumes:
+       - /var/run/docker.sock:/var/run/docker.sock
+       - kafkaData:/var/lib/kafka/data
+    networks:
+       - kafkaStack
+
+  schemaregistry:
+    image: confluentinc/cp-schema-registry:latest
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: localhost
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
+    depends_on:
+      - zookeeper
+      - kafka
+    ports:
+      - "8081:8081"
+    networks:
+      - kafkaStack
+
+volumes:
+  # create a persistent data volumes for kafka & zookeeper
+  kafkaData:
+  zkData:
+  zkLogs:
+  
+networks:
+  kafkaStack:
+  host:
+    external: true
