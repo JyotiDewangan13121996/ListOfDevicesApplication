@@ -22,3 +22,8 @@
 1. Kafkacat Utility Tool 
 2. Schema Registry 
 3. Apache Avro.
+
+
+### Week 5 Task :
+
+=> Learning about OPC UA .
